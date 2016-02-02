@@ -76,4 +76,4 @@ SOME USEFUL REFERENCE TO HELP YOU WITH THE EXERCISE
  Prentice Hall PTR. 2008. (ISBN
 0­13­235088­2.)
 ● Martin Fowler’s web site  ​
-http://martinfowler.com/ 
+http://martinfowler.com/
