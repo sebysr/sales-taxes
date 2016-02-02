@@ -1,15 +1,14 @@
 package me.buggin;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.math.BigDecimal;
 
 /**
- * Unit test for simple Utils.
+ * Unit tests.
  */
-public class UtilsTest
+public class Tests
         extends TestCase {
 
 
@@ -18,19 +17,19 @@ public class UtilsTest
      *
      * @param testName name of the test case
      */
-    public UtilsTest(String testName) {
+    public Tests(String testName) {
         super(testName);
     }
 
     /**
      * @return the suite of tests being tested
      */
-    public static Test suite() {
-        return new TestSuite(UtilsTest.class);
+    public static junit.framework.Test suite() {
+        return new TestSuite(Tests.class);
     }
 
     /**
-     * Test FOOD
+     * Tests FOOD good
      */
     public void testGoodExempt() {
         Good good1 = GoodBuilder
@@ -45,6 +44,10 @@ public class UtilsTest
         assertTrue("chocolate postax",good1.getPriceAndTaxes().equals(new BigDecimal("0.85")));
     }
 
+    /**
+     * Tests Exempted from tax Good
+     * @throws Exception
+     */
     public void testAnotherGoodExempt() throws Exception {
         Good good1 = GoodBuilder
                 .newGoodBuilder()
@@ -59,7 +62,7 @@ public class UtilsTest
     }
 
     /**
-     * Test OTHER
+     * Tests OTHER type of food, (with tax)
      */
     public void testGood() {
         Good good1 = GoodBuilder
@@ -74,10 +77,15 @@ public class UtilsTest
         assertTrue("cd postax",good1.getPriceAndTaxes().equals(new BigDecimal("16.49")));
     }
 
+    /**
+     * Test first order containing
+     * 1 book : 12.49
+     * 1 music CD: 14.99
+     * 1 chocolate bar: 0.85
+     * @throws Exception
+     */
     public void testOrder1() throws Exception {
-//        1 book : 12.49
-//        1 music CD: 14.99
-//        1 chocolate bar: 0.85
+
         Good good1 = GoodBuilder
                 .newGoodBuilder()
                 .setQuantity(1)
@@ -115,9 +123,13 @@ public class UtilsTest
         assertTrue("Order 1: total ",order1.getTotalPrice().equals(new BigDecimal("29.83")));
     }
 
+    /**
+     * Tests second order containing imported Goods
+     * 1 imported box of chocolates at 10.00
+     * 1 imported bottle of perfume at 47.50
+     * @throws Exception
+     */
     public void testOrder2() throws Exception {
-//        1 imported box of chocolates at 10.00
-//        1 imported bottle of perfume at 47.50
         Good good1 = GoodBuilder
                 .newGoodBuilder()
                 .setQuantity(1)
@@ -147,11 +159,15 @@ public class UtilsTest
         assertTrue("Order 2: total ",order2.getTotalPrice().equals(new BigDecimal("65.15")));
     }
 
+    /**
+     *
+     * 1 imported bottle of perfume at 27.99
+     * 1 bottle of perfume at 18.99
+     * 1 packet of headache pills at 9.75
+     * 1 box of imported chocolates at 11.25
+     * @throws Exception
+     */
     public void testOrder3() throws Exception {
-//        1 imported bottle of perfume at 27.99
-//        1 bottle of perfume at 18.99
-//        1 packet of headache pills at 9.75
-//        1 box of imported chocolates at 11.25
         Good good1 = GoodBuilder
                 .newGoodBuilder()
                 .setQuantity(1)
@@ -200,8 +216,11 @@ public class UtilsTest
 
     }
 
+    /**
+     * Testing of the round function
+     * @throws Exception
+     */
     public void testRound() throws Exception {
-
         assertTrue(Utils.round(new BigDecimal("0.03")).equals(new BigDecimal("0.05")));
         assertTrue(Utils.round(new BigDecimal("0.033232")).equals(new BigDecimal("0.05")));
         assertTrue(Utils.round(new BigDecimal("1.249")).equals(new BigDecimal("1.25")));

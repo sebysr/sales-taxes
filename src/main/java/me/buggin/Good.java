@@ -3,12 +3,16 @@ package me.buggin;
 import java.math.BigDecimal;
 
 /**
- * Created by abuggin on 2/1/16.
- * 
- * From an article [http://www-128.ibm.com/developerworks/java/library/j-jtp0114/] by Brian Goetz:
- * "...it is a bad idea to use floating point to try to represent exact quantities like monetary amounts.
- * Using floating point for dollars-and-cents calculations is a recipe for disaster.
- * Floating point numbers are best reserved for values such as measurements, whose values are fundamentally inexact to begin with."
+ * Main object representing the good purchased
+ * <p>
+ *     Motivation for using <code>BigDecimal</code> :)
+ *     From an article [http://www-128.ibm.com/developerworks/java/library/j-jtp0114/] by Brian Goetz:
+ *     "...it is a bad idea to use floating point to try to represent exact quantities like monetary amounts.
+ *     Using floating point for dollars-and-cents calculations is a recipe for disaster.
+ *     Floating point numbers are best reserved for values such as measurements, whose values are fundamentally inexact to begin with."
+ * </p>
+ * @author Alessandro Buggin
+ *
  */
 
 public class Good {
@@ -30,6 +34,15 @@ public class Good {
         computeTaxes();
     }
 
+    /**
+     * Factory method for Good object
+     * @param quantity
+     * @param description
+     * @param type
+     * @param isExempt if is a medical item, food or book, then is exempted from tax
+     * @param price
+     * @return
+     */
     public static Good newGood(int quantity, String description, GoodType type, boolean isExempt, BigDecimal price) {
         return new Good(quantity, description, type, isExempt, price);
     }

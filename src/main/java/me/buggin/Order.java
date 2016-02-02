@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by abuggin on 2/2/16.
+ * Represent a set of <code>Good</code>s purchased together; uses builder Pattern
  */
 public class Order {
     private List<Good> m_listOfGoods = new LinkedList<Good>();
@@ -33,6 +33,10 @@ public class Order {
         return (m_totPrices);
     }
 
+    /**
+     *
+     * @return receipt of whole basket
+     */
     public String toString() {
         StringBuilder sb = new StringBuilder();
 

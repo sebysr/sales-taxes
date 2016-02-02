@@ -3,7 +3,8 @@ package me.buggin;
 import java.math.BigDecimal;
 
 /**
- * Created by abuggin on 2/1/16.
+ * Builder patter for <code>Good</code> object
+ *
  */
 public class GoodBuilder {
     private int m_quantity = 1;

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by abuggin on 2/2/16.
+ * Builder pattern.
  */
 public class OrderBuilder {
     private List<Good> listOfGoods = new LinkedList<Good>();
