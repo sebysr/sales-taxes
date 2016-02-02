@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/Bhudjo/sales-taxes.svg?branch=master)](https://travis-ci.org/Bhudjo/sales-taxes.svg?branch=master
+)
+
 The following exercise is sent to you as an additional tool to be used in your technical interview.
 We ask you to solve it using the Java programming language.
 This problem requires some kind of input. You are free to implement any mechanism for feeding
