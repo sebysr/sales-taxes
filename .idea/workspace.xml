@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13002acf-8d4d-47be-ab4f-384c88b5fbc7" name="Default" comment="init">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/me/buggin/UtilsTest.java" afterPath="$PROJECT_DIR$/src/test/java/me/buggin/Tests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/Good.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/Good.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/GoodBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/GoodBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/Order.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/OrderBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/OrderBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/Utils.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/Utils.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Sales Taxes.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,11 +27,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="Good.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Good.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Good.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.35306406">
+            <state vertical-scroll-proportion="0.0">
               <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.5752089">
+              <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -125,6 +130,7 @@
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/GoodBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/Order.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -867,7 +873,7 @@
       <option name="number" value="Default" />
       <updated>1454320517210</updated>
       <workItem from="1454320521347" duration="14230000" />
-      <workItem from="1454406302361" duration="27265000" />
+      <workItem from="1454406302361" duration="27503000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1454341255997</created>
@@ -911,7 +917,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41495000" />
+    <option name="totallyTimeSpent" value="41733000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="35" width="3200" height="1765" extended-state="7" />
@@ -1100,8 +1106,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Good.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.35306406">
+        <state vertical-scroll-proportion="0.0">
           <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.5752089">
+          <caret line="78" column="25" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
           <folding />
         </state>
       </provider>
