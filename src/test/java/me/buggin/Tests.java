@@ -40,12 +40,13 @@ public class Tests
                 .setImported(false)
                 .setDescription("chocolate bar")
                 .build();
-        assertTrue("chocolate pretax",good1.getPricePreTaxes().equals(new BigDecimal("0.85")));
-        assertTrue("chocolate postax",good1.getPriceAndTaxes().equals(new BigDecimal("0.85")));
+        assertTrue("chocolate pretax", good1.getPriceBeforeTaxes().equals(new BigDecimal("0.85")));
+        assertTrue("chocolate postax", good1.getPriceAfterTaxes().equals(new BigDecimal("0.85")));
     }
 
     /**
      * Tests Exempted from tax Good
+     *
      * @throws Exception
      */
     public void testAnotherGoodExempt() throws Exception {
@@ -57,8 +58,8 @@ public class Tests
                 .setImported(false)
                 .setDescription("book")
                 .build();
-        assertTrue("book pretax",good1.getPricePreTaxes().equals(new BigDecimal("12.49")));
-        assertTrue("book postax",good1.getPriceAndTaxes().equals(new BigDecimal("12.49")));
+        assertTrue("book pretax", good1.getPriceBeforeTaxes().equals(new BigDecimal("12.49")));
+        assertTrue("book postax", good1.getPriceAfterTaxes().equals(new BigDecimal("12.49")));
     }
 
     /**
@@ -73,8 +74,8 @@ public class Tests
                 .setImported(false)
                 .setDescription("music CD")
                 .build();
-        assertTrue("cd pretax",good1.getPricePreTaxes().equals(new BigDecimal("14.99")));
-        assertTrue("cd postax",good1.getPriceAndTaxes().equals(new BigDecimal("16.49")));
+        assertTrue("cd pretax", good1.getPriceBeforeTaxes().equals(new BigDecimal("14.99")));
+        assertTrue("cd postax", good1.getPriceAfterTaxes().equals(new BigDecimal("16.49")));
     }
 
     /**
@@ -82,6 +83,7 @@ public class Tests
      * 1 book : 12.49
      * 1 music CD: 14.99
      * 1 chocolate bar: 0.85
+     *
      * @throws Exception
      */
     public void testOrder1() throws Exception {
@@ -119,14 +121,15 @@ public class Tests
                 .build();
 
         System.out.println(order1);
-        assertTrue("Order 1: taxes ",order1.getTotalTaxes().equals(new BigDecimal("1.50")));
-        assertTrue("Order 1: total ",order1.getTotalPrice().equals(new BigDecimal("29.83")));
+        assertTrue("Order 1: taxes ", order1.getTotalTaxes().equals(new BigDecimal("1.50")));
+        assertTrue("Order 1: total ", order1.getTotalPrice().equals(new BigDecimal("29.83")));
     }
 
     /**
      * Tests second order containing imported Goods
      * 1 imported box of chocolates at 10.00
      * 1 imported bottle of perfume at 47.50
+     *
      * @throws Exception
      */
     public void testOrder2() throws Exception {
@@ -155,16 +158,16 @@ public class Tests
                 .build();
 
         System.out.println(order2);
-        assertTrue("Order 2: taxes ",order2.getTotalTaxes().equals(new BigDecimal("7.65")));
-        assertTrue("Order 2: total ",order2.getTotalPrice().equals(new BigDecimal("65.15")));
+        assertTrue("Order 2: taxes ", order2.getTotalTaxes().equals(new BigDecimal("7.65")));
+        assertTrue("Order 2: total ", order2.getTotalPrice().equals(new BigDecimal("65.15")));
     }
 
     /**
-     *
      * 1 imported bottle of perfume at 27.99
      * 1 bottle of perfume at 18.99
      * 1 packet of headache pills at 9.75
      * 1 box of imported chocolates at 11.25
+     *
      * @throws Exception
      */
     public void testOrder3() throws Exception {
@@ -210,14 +213,15 @@ public class Tests
                 .build();
 
         System.out.println(order3);
-        assertTrue("Order 3: taxes ",order3.getTotalTaxes().equals(new BigDecimal("6.70")));
-        assertTrue("Order 3: total ",order3.getTotalPrice().equals(new BigDecimal("74.68")));
+        assertTrue("Order 3: taxes ", order3.getTotalTaxes().equals(new BigDecimal("6.70")));
+        assertTrue("Order 3: total ", order3.getTotalPrice().equals(new BigDecimal("74.68")));
 
 
     }
 
     /**
      * Testing of the round function
+     *
      * @throws Exception
      */
     public void testRound() throws Exception {

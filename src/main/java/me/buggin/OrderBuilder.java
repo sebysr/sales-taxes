@@ -12,6 +12,7 @@ import java.util.List;
  * <code>for (I #i = Expression.iterator(); #i.hasNext(); ) </code>
  * <p>
  * Then in this context, <code>ListIterator.add(E element)</code> is <code>O(1)</code> which is a main benefit of <code>LinkedList</code>
+ *
  * @see <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.14.2">ref</a>
  */
 public class OrderBuilder {

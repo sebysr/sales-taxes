@@ -16,7 +16,7 @@ public class Order {
         m_listOfGoods = listOfGoods;
         for (Good g : listOfGoods) {
             m_totTaxes = m_totTaxes.add(g.getTaxes());
-            m_totPrices = m_totPrices.add(g.getPriceAndTaxes());
+            m_totPrices = m_totPrices.add(g.getPriceAfterTaxes());
         }
     }
 
