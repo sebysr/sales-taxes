@@ -1,18 +1,19 @@
 package me.buggin;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * Main object representing the good purchased
  * <p>
- *     Motivation for using <code>BigDecimal</code> :)
- *     From an article [http://www-128.ibm.com/developerworks/java/library/j-jtp0114/] by Brian Goetz:
- *     "...it is a bad idea to use floating point to try to represent exact quantities like monetary amounts.
- *     Using floating point for dollars-and-cents calculations is a recipe for disaster.
- *     Floating point numbers are best reserved for values such as measurements, whose values are fundamentally inexact to begin with."
- * </p>
+ * Motivation for using <code>BigDecimal</code> :)
+ * <p>
+ * <a href="http://www-128.ibm.com/developerworks/java/library/j-jtp0114/">From an article by Brian Goetz:</a>
+ * <p>
+ * "...it is a bad idea to use floating point to try to represent exact quantities like monetary amounts.
+ * Using floating point for dollars-and-cents calculations is a recipe for disaster.
+ * Floating point numbers are best reserved for values such as measurements, whose values are fundamentally inexact to begin with."
  * @author Alessandro Buggin
- *
  */
 
 public class Good {
@@ -36,15 +37,30 @@ public class Good {
 
     /**
      * Factory method for Good object
+     *
      * @param quantity
      * @param description
      * @param type
-     * @param isExempt if is a medical item, food or book, then is exempted from tax
+     * @param isExempt    if is a medical item, food or book, then is exempted from tax
      * @param price
      * @return
      */
     public static Good newGood(int quantity, String description, GoodType type, boolean isExempt, BigDecimal price) {
         return new Good(quantity, description, type, isExempt, price);
+    }
+
+    /**
+     * round amount following specification:
+     * The rounding rules for sales tax are that for a tax rate of n%,
+     * a shelf price of p contains (np/100 rounded up to the nearest 0.05) amount of sales tax.
+     *
+     * @param amount
+     * @return rounded amount
+     */
+    public static BigDecimal round(BigDecimal amount) {
+        return new BigDecimal(
+                Math.ceil(amount.doubleValue() * 20) / 20)
+                .setScale(2, RoundingMode.HALF_UP);
     }
 
     private void computeTaxes() {
@@ -65,7 +81,7 @@ public class Good {
     }
 
     public BigDecimal getTaxes() {
-        return Utils.round(m_importTax.add(m_luxuryTax));
+        return round(m_importTax.add(m_luxuryTax));
     }
 
     public BigDecimal getPriceAndTaxes() {

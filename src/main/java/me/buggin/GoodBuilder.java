@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 
 /**
  * Builder patter for <code>Good</code> object
- *
  */
 public class GoodBuilder {
     private int m_quantity = 1;

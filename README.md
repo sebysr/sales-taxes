@@ -80,11 +80,6 @@ Write an application that prints out the receipt details for these shopping bask
 
 
 ###SOME USEFUL REFERENCE TO HELP YOU WITH THE EXERCISE
-- Test­Driven Development: By Example . ​
- Addison­Wesley. Winner of the Jolt Productivity Award.
-2002. (ISBN 978­0321146533)
-- Clean Code: A Handbook of Agile Software Craftsmanship . ​
- Prentice Hall PTR. 2008. (ISBN
-0­13­235088­2.)
-- Martin Fowler’s web site  ​
-http://martinfowler.com/
+- Test­Driven Development: By Example . ​Addison­Wesley. Winner of the Jolt Productivity Award. 2002. (ISBN 978­0321146533)
+- Clean Code: A Handbook of Agile Software Craftsmanship. ​Prentice Hall PTR. 2008. (ISBN 0­13­235088­2.)
+- Martin Fowler’s web site http://martinfowler.com/

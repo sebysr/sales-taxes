@@ -221,11 +221,11 @@ public class Tests
      * @throws Exception
      */
     public void testRound() throws Exception {
-        assertTrue(Utils.round(new BigDecimal("0.03")).equals(new BigDecimal("0.05")));
-        assertTrue(Utils.round(new BigDecimal("0.033232")).equals(new BigDecimal("0.05")));
-        assertTrue(Utils.round(new BigDecimal("1.249")).equals(new BigDecimal("1.25")));
-        assertTrue(Utils.round(new BigDecimal("1.499")).equals(new BigDecimal("1.50")));
-        assertTrue(Utils.round(new BigDecimal("1.8999")).equals(new BigDecimal("1.90")));
+        assertTrue(Good.round(new BigDecimal("0.03")).equals(new BigDecimal("0.05")));
+        assertTrue(Good.round(new BigDecimal("0.033232")).equals(new BigDecimal("0.05")));
+        assertTrue(Good.round(new BigDecimal("1.249")).equals(new BigDecimal("1.25")));
+        assertTrue(Good.round(new BigDecimal("1.499")).equals(new BigDecimal("1.50")));
+        assertTrue(Good.round(new BigDecimal("1.8999")).equals(new BigDecimal("1.90")));
 
     }
 }
