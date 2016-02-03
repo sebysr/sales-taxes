@@ -4,6 +4,10 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
 /**
  * Unit tests.
@@ -161,6 +165,27 @@ public class Tests
         assertTrue("Order 2: taxes ", order2.getTotalTaxes().equals(new BigDecimal("7.65")));
         assertTrue("Order 2: total ", order2.getTotalPrice().equals(new BigDecimal("65.15")));
     }
+
+    /**
+     * Tests scanning method for order
+     *
+     * @throws Exception
+     */
+    public void testOrderScanned() throws Exception {
+        String input = "1 book at 12.49\n" +
+                "1 music CD at 14.99\n" +
+                "1 chocolate bar at 0.85";
+
+        Parser parser = new Parser();
+        Order order = parser.parse(input);
+        System.out.println(order);
+        assertTrue(order.getTotalPrice().equals(new BigDecimal("29.83")));
+        assertTrue(order.getTotalTaxes().equals(new BigDecimal("1.50")));
+    }
+
+//    public void testMultipleScannedOrders() throws Exception {
+//
+//    }
 
     /**
      * 1 imported bottle of perfume at 27.99
