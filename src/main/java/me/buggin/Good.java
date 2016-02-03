@@ -73,13 +73,9 @@ public class Good {
     public BigDecimal getTaxes() {
         if (m_taxes.equals(new BigDecimal(0))) {
             BigDecimal m_importTax = new BigDecimal(0);
-            BigDecimal m_luxuryTax = new BigDecimal(0);
-
+            BigDecimal m_luxuryTax = m_price.multiply(m_type.getSalesTax());
             if (this.m_isImported) {
-                m_importTax = m_price.multiply(new BigDecimal("0.05"));
-            }
-            if (this.m_type == (GoodType.OTHER_TYPE)) {
-                m_luxuryTax = m_price.multiply(new BigDecimal("0.1"));
+                m_importTax = m_price.multiply(Tax.IMPORT_TAX);
             }
             this.m_taxes = round(m_importTax.add(m_luxuryTax));
         }

@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13002acf-8d4d-47be-ab4f-384c88b5fbc7" name="Default" comment="init">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/Tax.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/Good.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/Good.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/Order.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/me/buggin/OrderBuilder.java" afterPath="$PROJECT_DIR$/src/main/java/me/buggin/OrderBuilder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/me/buggin/Tests.java" afterPath="$PROJECT_DIR$/src/test/java/me/buggin/Tests.java" />
     </list>
     <ignored path="Sales Taxes.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +33,13 @@
       <file leaf-file-name="Good.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Good.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.47493038">
-              <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8384401">
+              <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="docComment;method#round#0;class#Good#0" expanded="false" />
+                <element signature="e#2295#2296#0" expanded="true" />
+                <element signature="e#2325#2326#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -47,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/me/buggin/Tests.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+              <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -57,8 +59,26 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-              <folding />
+              <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+              <folding>
+                <element signature="e#332#333#0" expanded="true" />
+                <element signature="e#368#369#0" expanded="true" />
+                <element signature="e#391#392#0" expanded="true" />
+                <element signature="e#424#425#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tax.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Tax.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+              <folding>
+                <element signature="e#317#318#0" expanded="true" />
+                <element signature="e#341#342#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -70,13 +90,17 @@
               <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#737#738#0" expanded="true" />
-                <element signature="e#782#783#0" expanded="true" />
-                <element signature="e#823#824#0" expanded="true" />
-                <element signature="e#858#859#0" expanded="true" />
-                <element signature="e#899#900#0" expanded="true" />
-                <element signature="e#935#936#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GoodBuilder.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/GoodBuilder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -123,14 +147,15 @@
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/App.java" />
         <option value="$PROJECT_DIR$/src/test/java/me/buggin/UtilsTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/me/buggin/Test.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java" />
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/Utils.java" />
         <option value="$PROJECT_DIR$/src/test/java/me/buggin/Tests.java" />
-        <option value="$PROJECT_DIR$/src/main/java/me/buggin/GoodBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/OrderBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/buggin/GoodBuilder.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/buggin/Taxes.java" />
+        <option value="$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java" />
         <option value="$PROJECT_DIR$/src/main/java/me/buggin/Good.java" />
       </list>
     </option>
@@ -210,9 +235,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -285,6 +309,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -889,7 +914,8 @@
       <workItem from="1454320521347" duration="14230000" />
       <workItem from="1454406302361" duration="28175000" />
       <workItem from="1454487296383" duration="6419000" />
-      <workItem from="1454495169898" duration="482000" />
+      <workItem from="1454495169898" duration="1367000" />
+      <workItem from="1454509353277" duration="4680000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <created>1454341255997</created>
@@ -901,29 +927,29 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Tests - 2016.02.03 at 10h 58m 09s.xml">
+    <history-entry file="Tests - 2016.02.03 at 16h 07m 15s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Tests - 2016.02.03 at 11h 00m 43s.xml">
+    <history-entry file="Tests - 2016.02.03 at 16h 07m 52s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Tests - 2016.02.03 at 11h 27m 15s.xml">
+    <history-entry file="Tests - 2016.02.03 at 16h 09m 56s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Tests - 2016.02.03 at 11h 28m 03s.xml">
+    <history-entry file="Tests - 2016.02.03 at 16h 20m 17s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Tests - 2016.02.03 at 11h 33m 31s.xml">
+    <history-entry file="Tests - 2016.02.03 at 16h 39m 26s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="Tests - 2016.02.03 at 11h 34m 05s.xml">
+    <history-entry file="Tests - 2016.02.03 at 17h 01m 08s.xml">
       <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UtilsTest - 2016.02.02 at 17h 47m 56s.xml">
-      <configuration name="UtilsTest" configurationId="JUnit" />
+    <history-entry file="Tests - 2016.02.03 at 17h 05m 48s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="UtilsTest_testOrder3 - 2016.02.02 at 17h 54m 27s.xml">
-      <configuration name="UtilsTest.testOrder3" configurationId="JUnit" />
+    <history-entry file="Tests - 2016.02.03 at 17h 10m 23s.xml">
+      <configuration name="Tests" configurationId="JUnit" />
     </history-entry>
     <history-entry file="UtilsTest_testOrder3 - 2016.02.02 at 17h 55m 29s.xml">
       <configuration name="UtilsTest.testOrder3" configurationId="JUnit" />
@@ -933,7 +959,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49306000" />
+    <option name="totallyTimeSpent" value="54871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="35" width="3200" height="1765" extended-state="1" />
@@ -1024,6 +1050,60 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#round#0;class#Good#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/me/buggin/Tests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding>
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/OrderBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Good.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="docComment;method#round#0;class#Good#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1040,7 +1120,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1050,12 +1135,6 @@
           <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1075,6 +1154,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#round#0;class#Good#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1106,7 +1187,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
+          <folding>
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1116,12 +1202,6 @@
           <caret line="7" column="40" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1149,6 +1229,8 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#round#0;class#Good#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1196,10 +1278,20 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/GoodBuilder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16146994">
-          <caret line="5" column="46" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
           <folding />
         </state>
       </provider>
@@ -1212,18 +1304,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Order.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/me/buggin/Tests.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="37" selection-start-line="10" selection-start-column="37" selection-end-line="10" selection-end-column="37" />
+          <caret line="155" column="31" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Tax.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#737#738#0" expanded="true" />
-            <element signature="e#782#783#0" expanded="true" />
-            <element signature="e#823#824#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#899#900#0" expanded="true" />
-            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#317#318#0" expanded="true" />
+            <element signature="e#341#342#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1231,26 +1326,25 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/GoodType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/me/buggin/Tests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="215" column="0" selection-start-line="215" selection-start-column="0" selection-end-line="215" selection-end-column="0" />
-          <folding />
+          <caret line="16" column="29" selection-start-line="16" selection-start-column="29" selection-end-line="16" selection-end-column="29" />
+          <folding>
+            <element signature="e#332#333#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+            <element signature="e#424#425#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/me/buggin/Good.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.47493038">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8384401">
+          <caret line="78" column="13" selection-start-line="78" selection-start-column="13" selection-end-line="78" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="docComment;method#round#0;class#Good#0" expanded="false" />
+            <element signature="e#2295#2296#0" expanded="true" />
+            <element signature="e#2325#2326#0" expanded="true" />
           </folding>
         </state>
       </provider>

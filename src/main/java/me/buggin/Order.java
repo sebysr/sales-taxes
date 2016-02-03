@@ -48,7 +48,7 @@ public class Order {
             sb.append(g + "\n");
         }
 
-        sb.append("Sales Taxes: " + getTotalTaxes() + "\n");
+        sb.append("Sales Tax: " + getTotalTaxes() + "\n");
         sb.append("Total: " + getTotalPrice() + "\n");
 
         return sb.toString();
