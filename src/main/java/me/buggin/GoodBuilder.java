@@ -16,27 +16,27 @@ public class GoodBuilder {
         return new GoodBuilder();
     }
 
-    public GoodBuilder setQuantity(int quantity) {
+    public GoodBuilder howMany(int quantity) {
         this.m_quantity = quantity;
         return this;
     }
 
-    public GoodBuilder setPrice(BigDecimal price) {
+    public GoodBuilder withPrice(BigDecimal price) {
         this.m_price = price;
         return this;
     }
 
-    public GoodBuilder setDescription(String desc) {
+    public GoodBuilder withDescription(String desc) {
         this.m_description = desc;
         return this;
     }
 
-    public GoodBuilder setType(GoodType type) {
+    public GoodBuilder ofType(GoodType type) {
         this.m_type = type;
         return this;
     }
 
-    public GoodBuilder setImported(boolean exempt) {
+    public GoodBuilder isImported(boolean exempt) {
         this.m_isImported = exempt;
         return this;
     }
@@ -45,7 +45,7 @@ public class GoodBuilder {
         return Good.newGood(m_quantity, m_description, m_type, m_isImported, m_price);
     }
 
-    public GoodBuilder setPrice(String s) {
-        return this.setPrice(new BigDecimal(s));
+    public GoodBuilder withPrice(String s) {
+        return this.withPrice(new BigDecimal(s));
     }
 }

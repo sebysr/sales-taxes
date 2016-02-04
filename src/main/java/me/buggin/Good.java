@@ -65,8 +65,9 @@ public class Good {
     public String toString() {
         return m_quantity + " " + m_description + ": " + getPriceAfterTaxes();
     }
+
     public String toVerboseString() {
-        return "#"+m_quantity
+        return "#" + m_quantity
                 + " of: "
                 + m_description
                 + " at "
@@ -79,6 +80,7 @@ public class Good {
                 + m_type
                 + "]";
     }
+
     public BigDecimal getPriceBeforeTaxes() {
         return m_price;
     }

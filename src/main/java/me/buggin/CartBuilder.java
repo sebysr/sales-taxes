@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Builder pattern for <code>Order</code> object.
+ * Builder pattern for <code>Cart</code> object.
  * <p>
  * Motivation for use of <code>LinkedList</code>
  * <p>
@@ -15,19 +15,19 @@ import java.util.List;
  *
  * @see <a href="https://docs.oracle.com/javase/specs/jls/se7/html/jls-14.html#jls-14.14.2">ref</a>
  */
-public class OrderBuilder {
+public class CartBuilder {
     private List<Good> listOfGoods = new LinkedList<>();
 
-    public static OrderBuilder newOrderBuilder() {
-        return new OrderBuilder();
+    public static CartBuilder newOrderBuilder() {
+        return new CartBuilder();
     }
 
-    public OrderBuilder addGood(Good good) {
+    public CartBuilder addGood(Good good) {
         this.listOfGoods.add(good);
         return this;
     }
 
-    public Order build() {
-        return Order.newOrder(listOfGoods);
+    public Cart build() {
+        return Cart.newCart(listOfGoods);
     }
 }

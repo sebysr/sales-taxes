@@ -7,12 +7,12 @@ import java.util.List;
  * Represent a set of <code>Good</code>s purchased together;
  * uses builder Pattern
  */
-public class Order {
+public class Cart {
     private List<Good> m_listOfGoods;
     private BigDecimal m_totTaxes = new BigDecimal(0);
     private BigDecimal m_totPrices = new BigDecimal(0);
 
-    private Order(List<Good> listOfGoods) {
+    private Cart(List<Good> listOfGoods) {
         m_listOfGoods = listOfGoods;
         for (Good g : listOfGoods) {
             m_totTaxes = m_totTaxes.add(g.getTaxes());
@@ -26,8 +26,8 @@ public class Order {
      * @param listOfGoods
      * @return
      */
-    public static Order newOrder(List<Good> listOfGoods) {
-        return new Order(listOfGoods);
+    public static Cart newCart(List<Good> listOfGoods) {
+        return new Cart(listOfGoods);
     }
 
     public BigDecimal getTotalTaxes() {

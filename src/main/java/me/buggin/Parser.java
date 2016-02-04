@@ -6,52 +6,76 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * Created by abuggin on 2/3/16.
+ * Concrete implementer of TypeRequester (consumer)
  */
-public class Parser {
+public class Parser implements TypeRequester {
 
-    public Order parse(String input){
-        Scanner scanner = new Scanner(input);
-        OrderBuilder order = OrderBuilder.newOrderBuilder();
-        while (scanner.hasNextLine()){
-            order.addGood(parseLine(scanner.nextLine()));
-        }
-        return order.build();
+    private TypeProvider service;
+
+    public Parser(TypeProvider svc) {
+        this.service = svc;
     }
 
-    private Good parseLine(String line) {
+    /**
+     *
+     * @param input
+     * @return
+     */
+    @Override
+    public Cart parse(String input) {
+        Scanner scanner = new Scanner(input);
+        CartBuilder cart = CartBuilder.newOrderBuilder();
+        while (scanner.hasNextLine()) {
+            cart.addGood(buildGoodFrom(scanner.nextLine()));
+        }
+        return cart.build();
+    }
+
+    //TODO refactor
+    private Good buildGoodFrom(String line) {
         Scanner scanner = new Scanner(line);
         int quantity = scanner.nextInt();
         List<String> desc = new ArrayList<>();
         boolean imported = false;
-        scan: while(scanner.hasNext()){
+        scan:while (scanner.hasNext()) {
             String next = scanner.next();
 
-            switch (next){
+            switch (next) {
                 case "of":
-                    break ;
+                    break;
                 case "at":
                     break scan;
                 case "imported":
                     imported = true;
-                    break ;
+                    break;
                 default:
                     desc.add(next);
             }
 
         }
 
+
         BigDecimal price = new BigDecimal(scanner.next());
-        GoodType type = GoodType.parseType(desc);
+        GoodType type = parseType(desc);
         Good goodParsed = GoodBuilder
                 .newGoodBuilder()
-                .setType(type)
-                .setQuantity(quantity)
-                .setDescription(desc.toString())
-                .setImported(imported)
-                .setPrice(price)
+                .ofType(type)
+                .howMany(quantity)
+                .withDescription(desc.toString())
+                .isImported(imported)
+                .withPrice(price)
                 .build();
 
         return goodParsed;
+    }
+
+    private GoodType parseType(List<String> desc) {
+        for (String x : desc) {
+            GoodType potential = service.getType(x);
+            if (potential != null) {
+                return potential;
+            }
+        }
+        return GoodType.OTHER_TYPE;
     }
 }

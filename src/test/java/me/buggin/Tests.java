@@ -4,10 +4,6 @@ import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 
 /**
  * Unit tests.
@@ -38,11 +34,11 @@ public class Tests
     public void testGoodExempt() {
         Good good1 = GoodBuilder
                 .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.FOOD_TYPE)
-                .setPrice("0.85")
-                .setImported(false)
-                .setDescription("chocolate bar")
+                .howMany(1)
+                .ofType(GoodType.FOOD_TYPE)
+                .withPrice("0.85")
+                .isImported(false)
+                .withDescription("chocolate bar")
                 .build();
         assertTrue("chocolate pretax", good1.getPriceBeforeTaxes().equals(new BigDecimal("0.85")));
         assertTrue("chocolate postax", good1.getPriceAfterTaxes().equals(new BigDecimal("0.85")));
@@ -56,11 +52,11 @@ public class Tests
     public void testAnotherGoodExempt() throws Exception {
         Good good1 = GoodBuilder
                 .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.BOOK_TYPE)
-                .setPrice("12.49")
-                .setImported(false)
-                .setDescription("book")
+                .howMany(1)
+                .ofType(GoodType.BOOK_TYPE)
+                .withPrice("12.49")
+                .isImported(false)
+                .withDescription("book")
                 .build();
         assertTrue("book pretax", good1.getPriceBeforeTaxes().equals(new BigDecimal("12.49")));
         assertTrue("book postax", good1.getPriceAfterTaxes().equals(new BigDecimal("12.49")));
@@ -72,11 +68,11 @@ public class Tests
     public void testGood() {
         Good good1 = GoodBuilder
                 .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.OTHER_TYPE)
-                .setPrice("14.99")
-                .setImported(false)
-                .setDescription("music CD")
+                .howMany(1)
+                .ofType(GoodType.OTHER_TYPE)
+                .withPrice("14.99")
+                .isImported(false)
+                .withDescription("music CD")
                 .build();
         assertTrue("cd pretax", good1.getPriceBeforeTaxes().equals(new BigDecimal("14.99")));
         assertTrue("cd postax", good1.getPriceAfterTaxes().equals(new BigDecimal("16.49")));
@@ -91,42 +87,39 @@ public class Tests
      * @throws Exception
      */
     public void testOrder1() throws Exception {
-
-        Good good1 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.BOOK_TYPE)
-                .setPrice("12.49")
-                .setImported(false)
-                .setDescription("book")
+        GoodBuilder aProduct = GoodBuilder.newGoodBuilder();
+        Good good1 = aProduct
+                .howMany(1)
+                .ofType(GoodType.BOOK_TYPE)
+                .withPrice("12.49")
+                .isImported(false)
+                .withDescription("book")
                 .build();
-        Good good2 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.OTHER_TYPE)
-                .setPrice("14.99")
-                .setImported(false)
-                .setDescription("music CD")
+        Good good2 = aProduct
+                .howMany(1)
+                .ofType(GoodType.OTHER_TYPE)
+                .withPrice("14.99")
+                .isImported(false)
+                .withDescription("music CD")
                 .build();
-        Good good3 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.FOOD_TYPE)
-                .setPrice("0.85")
-                .setImported(false)
-                .setDescription("chocolate bar")
+        Good good3 = aProduct
+                .howMany(1)
+                .ofType(GoodType.FOOD_TYPE)
+                .withPrice("0.85")
+                .isImported(false)
+                .withDescription("chocolate bar")
                 .build();
 
-        Order order1 = OrderBuilder
+        Cart cart1 = CartBuilder
                 .newOrderBuilder()
                 .addGood(good1)
                 .addGood(good2)
                 .addGood(good3)
                 .build();
 
-        System.out.println(order1);
-        assertTrue("Order 1: taxes ", order1.getTotalTaxes().equals(new BigDecimal("1.50")));
-        assertTrue("Order 1: total ", order1.getTotalPrice().equals(new BigDecimal("29.83")));
+        System.out.println(cart1);
+        assertTrue("Cart 1: taxes ", cart1.getTotalTaxes().equals(new BigDecimal("1.50")));
+        assertTrue("Cart 1: total ", cart1.getTotalPrice().equals(new BigDecimal("29.83")));
     }
 
     /**
@@ -137,38 +130,38 @@ public class Tests
      * @throws Exception
      */
     public void testOrder2() throws Exception {
-        Good good1 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.FOOD_TYPE)
-                .setPrice("10.00")
-                .setImported(true)
-                .setDescription("imported box of chocolates")
+        GoodBuilder aProduct = GoodBuilder.newGoodBuilder();
+
+        Good good1 = aProduct
+                .ofType(GoodType.FOOD_TYPE)
+                .withPrice("10.00")
+                .withDescription("imported box of chocolates")
+                .howMany(1)
+                .isImported(true)
                 .build();
-        Good good2 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.OTHER_TYPE)
-                .setPrice("47.50")
-                .setImported(true)
-                .setDescription("imported bottle of perfume")
+        Good good2 = aProduct
+                .howMany(1)
+                .ofType(GoodType.OTHER_TYPE)
+                .withPrice("47.50")
+                .isImported(true)
+                .withDescription("imported bottle of perfume")
                 .build();
 
 
-        Order order2 = OrderBuilder
-                .newOrderBuilder()
+        CartBuilder cart = CartBuilder.newOrderBuilder();
+        Cart cart2 = cart
                 .addGood(good1)
                 .addGood(good2)
                 .build();
 
-        System.out.println(order2);
-        assertTrue("Order 2: taxes ", order2.getTotalTaxes().equals(new BigDecimal("7.65")));
-        assertTrue("Order 2: total ", order2.getTotalPrice().equals(new BigDecimal("65.15")));
+        System.out.println(cart2);
+        assertTrue("Cart 2: taxes ", cart2.getTotalTaxes().equals(new BigDecimal("7.65")));
+        assertTrue("Cart 2: total ", cart2.getTotalPrice().equals(new BigDecimal("65.15")));
     }
 
     /**
      * Tests scanning method for order
-     *
+     * with Dependency Injection
      * @throws Exception
      */
     public void testOrderScanned() throws Exception {
@@ -176,16 +169,13 @@ public class Tests
                 "1 music CD at 14.99\n" +
                 "1 chocolate bar at 0.85";
 
-        Parser parser = new Parser();
-        Order order = parser.parse(input);
-        System.out.println(order);
-        assertTrue(order.getTotalPrice().equals(new BigDecimal("29.83")));
-        assertTrue(order.getTotalTaxes().equals(new BigDecimal("1.50")));
-    }
+        TypeInjector injector = new MapInjector();
 
-//    public void testMultipleScannedOrders() throws Exception {
-//
-//    }
+        Cart cart = injector.getParser().parse(input);
+        System.out.println(cart);
+        assertTrue(cart.getTotalPrice().equals(new BigDecimal("29.83")));
+        assertTrue(cart.getTotalTaxes().equals(new BigDecimal("1.50")));
+    }
 
     /**
      * 1 imported bottle of perfume at 27.99
@@ -196,50 +186,48 @@ public class Tests
      * @throws Exception
      */
     public void testOrder3() throws Exception {
-        Good good1 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.OTHER_TYPE)
-                .setPrice("27.99")
-                .setImported(true)
-                .setDescription("imported bottle of perfume")
+        GoodBuilder aProduct = GoodBuilder.newGoodBuilder();
+        CartBuilder myCart = CartBuilder.newOrderBuilder();
+
+        Good good1 = aProduct
+                .howMany(1)
+                .ofType(GoodType.OTHER_TYPE)
+                .withPrice("27.99")
+                .isImported(true)
+                .withDescription("imported bottle of perfume")
                 .build();
-        Good good2 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.OTHER_TYPE)
-                .setPrice("18.99")
-                .setImported(false)
-                .setDescription("bottle of perfume")
+        Good good2 = aProduct
+                .howMany(1)
+                .ofType(GoodType.OTHER_TYPE)
+                .withPrice("18.99")
+                .isImported(false)
+                .withDescription("bottle of perfume")
                 .build();
-        Good good3 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.MEDICAL_TYPE)
-                .setPrice("9.75")
-                .setImported(false)
-                .setDescription("packet of headache pills")
+        Good good3 = aProduct
+                .howMany(1)
+                .ofType(GoodType.MEDICAL_TYPE)
+                .withPrice("9.75")
+                .isImported(false)
+                .withDescription("packet of headache pills")
                 .build();
-        Good good4 = GoodBuilder
-                .newGoodBuilder()
-                .setQuantity(1)
-                .setType(GoodType.FOOD_TYPE)
-                .setPrice("11.25")
-                .setImported(true)
-                .setDescription("box of imported chocolates")
+        Good good4 = aProduct
+                .howMany(1)
+                .ofType(GoodType.FOOD_TYPE)
+                .withPrice("11.25")
+                .isImported(true)
+                .withDescription("box of imported chocolates")
                 .build();
 
-        Order order3 = OrderBuilder
-                .newOrderBuilder()
+        Cart cart3 = myCart
                 .addGood(good1)
                 .addGood(good2)
                 .addGood(good3)
                 .addGood(good4)
                 .build();
 
-        System.out.println(order3);
-        assertTrue("Order 3: taxes ", order3.getTotalTaxes().equals(new BigDecimal("6.70")));
-        assertTrue("Order 3: total ", order3.getTotalPrice().equals(new BigDecimal("74.68")));
+        System.out.println(cart3);
+        assertTrue("Cart 3: taxes ", cart3.getTotalTaxes().equals(new BigDecimal("6.70")));
+        assertTrue("Cart 3: total ", cart3.getTotalPrice().equals(new BigDecimal("74.68")));
 
 
     }
