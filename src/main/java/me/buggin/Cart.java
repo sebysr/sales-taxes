@@ -53,4 +53,16 @@ public class Cart {
 
         return sb.toString();
     }
+    public String toVerboseString() {
+        StringBuilder sb = new StringBuilder();
+
+        for (Good g : m_listOfGoods) {
+            sb.append(g.toVerboseString() + "\n");
+        }
+
+        sb.append("Sales Tax: " + getTotalTaxes() + "\n");
+        sb.append("Total: " + getTotalPrice() + "\n");
+
+        return sb.toString();
+    }
 }

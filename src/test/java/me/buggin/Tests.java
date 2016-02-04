@@ -28,6 +28,25 @@ public class Tests
         return new TestSuite(Tests.class);
     }
 
+
+    /**
+     * Tests scanning method for order
+     * with Dependency Injection
+     * @throws Exception
+     */
+    public void testOrderScanned() throws Exception {
+        String input = "1 book at 12.49\n" +
+                "1 music CD at 14.99\n" +
+                "1 chocolate bar at 0.85";
+
+        TypeInjector injector = new MapInjector();
+
+        Cart cart = injector.getParser().parse(input);
+        System.out.println(cart);
+        assertTrue(cart.getTotalPrice().equals(new BigDecimal("29.83")));
+        assertTrue(cart.getTotalTaxes().equals(new BigDecimal("1.50")));
+    }
+
     /**
      * Tests FOOD good
      */
@@ -159,23 +178,7 @@ public class Tests
         assertTrue("Cart 2: total ", cart2.getTotalPrice().equals(new BigDecimal("65.15")));
     }
 
-    /**
-     * Tests scanning method for order
-     * with Dependency Injection
-     * @throws Exception
-     */
-    public void testOrderScanned() throws Exception {
-        String input = "1 book at 12.49\n" +
-                "1 music CD at 14.99\n" +
-                "1 chocolate bar at 0.85";
 
-        TypeInjector injector = new MapInjector();
-
-        Cart cart = injector.getParser().parse(input);
-        System.out.println(cart);
-        assertTrue(cart.getTotalPrice().equals(new BigDecimal("29.83")));
-        assertTrue(cart.getTotalTaxes().equals(new BigDecimal("1.50")));
-    }
 
     /**
      * 1 imported bottle of perfume at 27.99
@@ -229,6 +232,24 @@ public class Tests
         assertTrue("Cart 3: taxes ", cart3.getTotalTaxes().equals(new BigDecimal("6.70")));
         assertTrue("Cart 3: total ", cart3.getTotalPrice().equals(new BigDecimal("74.68")));
 
+
+    }
+
+    /**
+     * tests that total taxes for medical type are zero with deep injection pattern
+     * @throws Exception
+     */
+    public void testDepInj() throws Exception {
+        String input = "1 book at 12.49\n" +
+                "1 music CD at 14.99\n" +
+                "1 chocolate bar at 0.85";
+
+        TypeInjector injector = new DummyInjector();
+
+        Cart cart = injector.getParser().parse(input);
+        System.out.println( cart.toVerboseString());
+
+        assertTrue(cart.getTotalTaxes().equals(new BigDecimal("0.00")));
 
     }
 
