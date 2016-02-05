@@ -17,16 +17,16 @@ import java.math.RoundingMode;
  * @author Alessandro Buggin
  */
 
-public class Good {
+public class Product {
     private int m_quantity;
     private String m_description;
-    private GoodType m_type;
+    private ProductType m_type;
     private boolean m_isImported;
     private BigDecimal m_price;
     private BigDecimal m_taxes = new BigDecimal(0);
 
 
-    private Good(int quantity, String description, GoodType type, boolean isImported, BigDecimal price) {
+    private Product(int quantity, String description, ProductType type, boolean isImported, BigDecimal price) {
         this.m_quantity = quantity;
         this.m_description = description;
         this.m_type = type;
@@ -35,7 +35,7 @@ public class Good {
     }
 
     /**
-     * Factory method for Good object
+     * Factory method for Product object
      *
      * @param quantity
      * @param description
@@ -44,8 +44,8 @@ public class Good {
      * @param price
      * @return
      */
-    public static Good newGood(int quantity, String description, GoodType type, boolean isExempt, BigDecimal price) {
-        return new Good(quantity, description, type, isExempt, price);
+    public static Product newProduct(int quantity, String description, ProductType type, boolean isExempt, BigDecimal price) {
+        return new Product(quantity, description, type, isExempt, price);
     }
 
     /**
@@ -63,7 +63,8 @@ public class Good {
     }
 
     public String toString() {
-        return m_quantity + " " + m_description + ": " + getPriceAfterTaxes();
+        String imported = (m_isImported) ? " imported " : " ";
+        return m_quantity + imported + m_description + ": " + getPriceAfterTaxes();
     }
 
     public String toVerboseString() {

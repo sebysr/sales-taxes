@@ -1,33 +1,27 @@
 package me.buggin;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represent a set of <code>Good</code>s purchased together;
+ * Represent a set of <code>Product</code>s purchased together;
  * uses builder Pattern
  */
 public class Cart {
-    private List<Good> m_listOfGoods;
+    private List<Product> m_listOfProducts;
     private BigDecimal m_totTaxes = new BigDecimal(0);
     private BigDecimal m_totPrices = new BigDecimal(0);
 
-    private Cart(List<Good> listOfGoods) {
-        m_listOfGoods = listOfGoods;
-        for (Good g : listOfGoods) {
-            m_totTaxes = m_totTaxes.add(g.getTaxes());
-            m_totPrices = m_totPrices.add(g.getPriceAfterTaxes());
-        }
+    public Cart() {
+        m_listOfProducts = new ArrayList<>();
     }
 
-    /**
-     * Factory method
-     *
-     * @param listOfGoods
-     * @return
-     */
-    public static Cart newCart(List<Good> listOfGoods) {
-        return new Cart(listOfGoods);
+    public Cart addGood(Product product) {
+        this.m_listOfProducts.add(product);
+        m_totTaxes = m_totTaxes.add(product.getTaxes());
+        m_totPrices = m_totPrices.add(product.getPriceAfterTaxes());
+        return this;
     }
 
     public BigDecimal getTotalTaxes() {
@@ -44,24 +38,18 @@ public class Cart {
     public String toString() {
         StringBuilder sb = new StringBuilder();
 
-        for (Good g : m_listOfGoods) {
-            sb.append(g + "\n");
+        for (Product g : m_listOfProducts) {
+            sb.append(g);
+//            sb.append(g.toVerboseString());
+            sb.append("\n");
         }
 
-        sb.append("Sales Tax: " + getTotalTaxes() + "\n");
-        sb.append("Total: " + getTotalPrice() + "\n");
-
-        return sb.toString();
-    }
-    public String toVerboseString() {
-        StringBuilder sb = new StringBuilder();
-
-        for (Good g : m_listOfGoods) {
-            sb.append(g.toVerboseString() + "\n");
-        }
-
-        sb.append("Sales Tax: " + getTotalTaxes() + "\n");
-        sb.append("Total: " + getTotalPrice() + "\n");
+        sb.append("Sales Tax: ");
+        sb.append(getTotalTaxes());
+        sb.append("\n");
+        sb.append("Total: ");
+        sb.append(getTotalPrice());
+        sb.append("\n");
 
         return sb.toString();
     }

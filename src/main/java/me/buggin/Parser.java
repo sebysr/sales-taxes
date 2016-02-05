@@ -17,31 +17,33 @@ public class Parser implements TypeRequester {
     }
 
     /**
-     *
      * @param input
      * @return
      */
     @Override
     public Cart parse(String input) {
         Scanner scanner = new Scanner(input);
-        CartBuilder cart = CartBuilder.newOrderBuilder();
+        Cart cart = new Cart();
         while (scanner.hasNextLine()) {
             cart.addGood(buildGoodFrom(scanner.nextLine()));
         }
-        return cart.build();
+        return cart;
     }
 
     //TODO refactor
-    private Good buildGoodFrom(String line) {
+    private Product buildGoodFrom(String line) {
         Scanner scanner = new Scanner(line);
         int quantity = scanner.nextInt();
-        List<String> desc = new ArrayList<>();
+        List<String> listDescription = new ArrayList<>();
+        StringBuilder stringBuilder = new StringBuilder();
         boolean imported = false;
-        scan:while (scanner.hasNext()) {
+        scan:
+        while (scanner.hasNext()) {
             String next = scanner.next();
 
             switch (next) {
                 case "of":
+                    stringBuilder.append(next + " ");
                     break;
                 case "at":
                     break scan;
@@ -49,33 +51,34 @@ public class Parser implements TypeRequester {
                     imported = true;
                     break;
                 default:
-                    desc.add(next);
+                    stringBuilder.append(next + " ");
+                    listDescription.add(next);
             }
 
         }
 
 
         BigDecimal price = new BigDecimal(scanner.next());
-        GoodType type = parseType(desc);
-        Good goodParsed = GoodBuilder
-                .newGoodBuilder()
+        ProductType type = parseType(listDescription);
+        Product productParsed = ProductBuilder
+                .newProductBuilder()
                 .ofType(type)
                 .howMany(quantity)
-                .withDescription(desc.toString())
+                .withDescription(stringBuilder.toString())
                 .isImported(imported)
                 .withPrice(price)
                 .build();
 
-        return goodParsed;
+        return productParsed;
     }
 
-    private GoodType parseType(List<String> desc) {
+    private ProductType parseType(List<String> desc) {
         for (String x : desc) {
-            GoodType potential = service.getType(x);
+            ProductType potential = service.getType(x);
             if (potential != null) {
                 return potential;
             }
         }
-        return GoodType.OTHER_TYPE;
+        return ProductType.OTHER;
     }
 }

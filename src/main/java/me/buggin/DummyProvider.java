@@ -1,11 +1,11 @@
 package me.buggin;
 
 /**
- * Always return <code>GoodType.MEDICAL_TYPE</code>
+ * Always return <code>ProductType.MEDICAL</code>
  */
 public class DummyProvider implements TypeProvider {
     @Override
-    public GoodType getType(String key) {
-        return GoodType.MEDICAL_TYPE;
+    public ProductType getType(String key) {
+        return ProductType.MEDICAL;
     }
 }

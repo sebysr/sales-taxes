@@ -1,7 +1,7 @@
 package me.buggin;
 
 /**
- * Offer a parser that returns always MEDICAL_TYPE
+ * Offer a parser that returns always MEDICAL
  */
 public class DummyInjector implements TypeInjector {
     @Override
