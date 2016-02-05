@@ -1,5 +1,7 @@
 package me.buggin;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -82,11 +84,13 @@ public class UnitTests extends TestCase{
      * @throws Exception
      */
     public void testRound() throws Exception {
-        assertTrue(Product.round(new BigDecimal("0.03")).equals(new BigDecimal("0.05")));
-        assertTrue(Product.round(new BigDecimal("0.033232")).equals(new BigDecimal("0.05")));
-        assertTrue(Product.round(new BigDecimal("1.249")).equals(new BigDecimal("1.25")));
-        assertTrue(Product.round(new BigDecimal("1.499")).equals(new BigDecimal("1.50")));
-        assertTrue(Product.round(new BigDecimal("1.8999")).equals(new BigDecimal("1.90")));
+        Injector injector = Guice.createInjector(new RoundingModule());
+        RoundingPolicy roundingPolicy = injector.getInstance(StandardRoundingPolicy.class);
+        assertTrue(roundingPolicy.round(new BigDecimal("0.03")).equals(new BigDecimal("0.05")));
+        assertTrue(roundingPolicy.round(new BigDecimal("0.033232")).equals(new BigDecimal("0.05")));
+        assertTrue(roundingPolicy.round(new BigDecimal("1.249")).equals(new BigDecimal("1.25")));
+        assertTrue(roundingPolicy.round(new BigDecimal("1.499")).equals(new BigDecimal("1.50")));
+        assertTrue(roundingPolicy.round(new BigDecimal("1.8999")).equals(new BigDecimal("1.90")));
 
     }
 }

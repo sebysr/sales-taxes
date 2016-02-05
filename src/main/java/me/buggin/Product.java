@@ -1,7 +1,9 @@
 package me.buggin;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
+
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
  * Main object representing the good purchased
@@ -25,6 +27,8 @@ public class Product {
     private BigDecimal m_price;
     private BigDecimal m_taxes = new BigDecimal(0);
 
+    private Injector injector = Guice.createInjector(new RoundingModule());
+    private RoundingPolicy roundingPolicy = injector.getInstance(StandardRoundingPolicy.class);
 
     private Product(int quantity, String description, ProductType type, boolean isImported, BigDecimal price) {
         this.m_quantity = quantity;
@@ -48,19 +52,7 @@ public class Product {
         return new Product(quantity, description, type, isExempt, price);
     }
 
-    /**
-     * round amount following specification:
-     * The rounding rules for sales tax are that for a tax rate of n%,
-     * a shelf price of p contains (np/100 rounded up to the nearest 0.05) amount of sales tax.
-     *
-     * @param amount
-     * @return rounded amount
-     */
-    public static BigDecimal round(BigDecimal amount) {
-        return new BigDecimal(
-                Math.ceil(amount.doubleValue() * 20) / 20)
-                .setScale(2, RoundingMode.HALF_UP);
-    }
+
 
     public String toString() {
         String imported = (m_isImported) ? " imported " : " ";
@@ -93,7 +85,7 @@ public class Product {
             if (this.m_isImported) {
                 m_importTax = m_price.multiply(Tax.IMPORT_TAX);
             }
-            this.m_taxes = round(m_importTax.add(m_luxuryTax));
+            this.m_taxes = roundingPolicy.round(m_importTax.add(m_luxuryTax));
         }
         return this.m_taxes;
     }
