@@ -1,5 +1,7 @@
 package me.buggin;
 
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
@@ -45,6 +47,10 @@ public class Tests
         };
     }
 
+    /**
+     * old plain test dependency injection
+     * @throws Exception
+     */
     public void testDummyInjector() throws Exception {
         String input = "1 book at 12.49\n" +
                 "1 music CD at 14.99\n" +
@@ -63,7 +69,7 @@ public class Tests
 
     /**
      * Tests scanning method for order
-     * with Dependency Injection
+     * with Guice Dependency Injection
      *
      * @throws Exception
      */
@@ -72,21 +78,22 @@ public class Tests
                 "1 music CD at 14.99\n" +
                 "1 chocolate bar at 0.85";
 
-        TypeInjector injector = new MapInjector();
+        Injector injector = Guice.createInjector(new MapInjector());
+        Parser parser = injector.getInstance(Parser.class);
 
-        Cart cart = injector.getParser().parse(input);
+        Cart cart = parser.parse(input);
         System.out.println(cart);
 
         input = "1 imported box of chocolates at 10.00\n" +
                 "1 imported bottle of perfume at 47.50";
-        Cart cart2 = injector.getParser().parse(input);
+        Cart cart2 = parser.parse(input);
         System.out.println(cart2);
 
         input = "1 imported bottle of perfume at 27.99\n" +
                 "1 bottle of perfume at 18.99\n" +
                 "1 packet of headache pills at 9.75\n" +
                 "1 box of imported chocolates at 11.25";
-        Cart cart3 = injector.getParser().parse(input);
+        Cart cart3 = parser.parse(input);
         System.out.println(cart3);
 
         assertTrue("Cart 1: price ", cart.getTotalPrice().equals(new BigDecimal("29.83")));
@@ -109,9 +116,10 @@ public class Tests
                 "1 music CD at 14.99\n" +
                 "1 chocolate bar at 0.85";
 
-        TypeInjector injector = new DummyInjector();
+        Injector injector = Guice.createInjector(new DummyInjector());
+        Parser parser = injector.getInstance(Parser.class);
 
-        Cart cart = injector.getParser().parse(input);
+        Cart cart = parser.parse(input);
         System.out.println(cart);
 
         assertTrue(cart.getTotalTaxes().equals(new BigDecimal("0.00")));

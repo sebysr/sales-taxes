@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import com.google.inject.Inject;
 
 /**
  * Concrete implementer of TypeRequester (consumer)
@@ -12,6 +13,7 @@ public class Parser implements TypeRequester {
 
     private TypeProvider service;
 
+    @Inject
     public Parser(TypeProvider svc) {
         this.service = svc;
     }

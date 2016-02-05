@@ -1,6 +1,7 @@
 package me.buggin;
 
 import com.google.common.collect.ImmutableMap;
+import com.google.inject.Singleton;
 
 /**
  * Concrete Provider for ProductType implemented with hardcoded Map
@@ -8,6 +9,7 @@ import com.google.common.collect.ImmutableMap;
  * This can be conceived as a dummy class, since it checks only a bunch of keys.
  * But since it implements a dependency injection pattern, another class can extend its functionality, maybe using a DB or other IO
  */
+@Singleton
 public class MapTypeProvider implements TypeProvider {
 
     private static ImmutableMap<String, ProductType> dictionary = ImmutableMap.<String, ProductType>builder()
